@@ -108,7 +108,10 @@ public class InsertSelectiveElementGenerator extends
 
             sb.setLength(0);
             sb.append(introspectedColumn.getJavaProperty());
-            sb.append(" != null"); //$NON-NLS-1$
+            //sb.append(" != null"); //$NON-NLS-1$
+            sb.append(" != null and "); //$NON-NLS-1$
+            sb.append(introspectedColumn.getJavaProperty()); //$NON-NLS-1$
+            sb.append(" != ''"); //$NON-NLS-1$
             XmlElement insertNotNullElement = new XmlElement("if"); //$NON-NLS-1$
             insertNotNullElement.addAttribute(new Attribute(
                     "test", sb.toString())); //$NON-NLS-1$
@@ -122,7 +125,10 @@ public class InsertSelectiveElementGenerator extends
 
             sb.setLength(0);
             sb.append(introspectedColumn.getJavaProperty());
-            sb.append(" != null"); //$NON-NLS-1$
+            //sb.append(" != null"); //$NON-NLS-1$
+            sb.append(" != null and "); //$NON-NLS-1$
+            sb.append(introspectedColumn.getJavaProperty()); //$NON-NLS-1$
+            sb.append(" != ''"); //$NON-NLS-1$
             XmlElement valuesNotNullElement = new XmlElement("if"); //$NON-NLS-1$
             valuesNotNullElement.addAttribute(new Attribute(
                     "test", sb.toString())); //$NON-NLS-1$
